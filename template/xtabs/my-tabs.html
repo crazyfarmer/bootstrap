@@ -1,0 +1,9 @@
+<div class="tab-content" ng-transclude></div>
+
+<div class="tabbable pull-right">
+  <ul class="nav nav-pills nav-stacked text-center">
+    <li ng-repeat="pane in panes" ng-class="{active:pane.selected}">
+      <a  href="" ng-click="select(pane)"><img width="70" height="70" ng-src="{{pane.logo}}"><br>{{pane.title}}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<div ng-controller="XTabsDemoCtrl">
+  <!-- <p>Select a tab by setting active binding to true:</p>
+  <ng-tabs>
+    <content-tab title='{{tabs[0].title}}' logo="{{tabs[0].logo}}" dat-tab-active>
+      <div>{{tabs[0].content}}</div>
+    </content-tab>
+    <content-tab title='{{tabs[1].title}}' logo="{{tabs[0].logo}}">
+      <div>{{tabs[1].content}}</div>
+    </content-tab>
+  </ng-tabs> -->
+  <xx-tabs>
+    <xx-pane title="{{tabs[0].title}}" logo="{{tabs[0].logo}}">
+      <h4>NC的介绍</h4>
+      <p>{{tabs[0].content}}</p>
+    </xx-pane>
+    <xx-pane title="{{tabs[1].title}}" logo="{{tabs[1].logo}}">
+      <h4>U9的介绍</h4>
+      <em>{{tabs[1].content}}</em>
+    </xx-pane>
+  </xx-tabs>
+</div>

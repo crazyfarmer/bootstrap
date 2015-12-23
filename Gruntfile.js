@@ -13,6 +13,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-ddescribe-iit');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+
 
   // Project configuration.
   grunt.util.linefeed = '\n';
@@ -38,6 +40,14 @@ module.exports = function(grunt) {
                ' * Version: <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>',
                ' * License: <%= pkg.license %>',
                ' */\n'].join('\n')
+    },
+    connect: {
+       server: {
+         options: {
+           port: 9001,
+           base: 'dist'
+         }
+       }
     },
     delta: {
       docs: {
@@ -203,8 +213,8 @@ module.exports = function(grunt) {
   grunt.registerTask('watch', ['before-test', 'after-test', 'karma:watch', 'delta']);
 
   // Default task.
-  grunt.registerTask('default', ['before-test', 'test', 'after-test']);
-
+  // grunt.registerTask('default', ['before-test', 'test', 'after-test']);
+  grunt.registerTask('default', ['before-test', 'after-test']);
   grunt.registerTask('enforce', 'Install commit message enforce script if it doesn\'t exist', function() {
     if (!grunt.file.exists('.git/hooks/commit-msg')) {
       grunt.file.copy('misc/validate-commit-msg.js', '.git/hooks/commit-msg');
@@ -488,5 +498,6 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('preview', ['connect:server']);
   return grunt;
 };

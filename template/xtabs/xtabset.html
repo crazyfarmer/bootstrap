@@ -1,0 +1,11 @@
+<div>
+  <div ng-transclude></div>
+  <div class="pull-right hidden-xs">
+    <ul class="nav nav-pills nav-stacked text-center">
+      <li ng-repeat="tab in tabs" ng-click="selectTab($index)">
+        <a aria-controls="home"  aria-expanded="true" role="tab" data-toggle="tab">
+          <img width="70" height="70" ng-src="{{tab.logo}}">{{tab.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
